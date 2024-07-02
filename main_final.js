@@ -109,6 +109,7 @@ function process_touchstart(ev){
 
 function process_touchend(){
   //to be implemented
+  reset_movement();
 }
 
 function reset_movement(){
