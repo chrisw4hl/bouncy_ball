@@ -28,7 +28,12 @@ var windowArea = width*height;
 const inputs = {"w":"keyup","a":"keyup","s":"keyup","d":"keyup","Escape":"keyup"};
 // function to generate random number
 
-var scoreHistory = localStorage.getItem("highScores");
+if (localStorage.getItem("highScores") == null){
+  var scoreHistory = [];
+}
+else{
+  var scoreHistory = localStorage.getItem("highScores");
+}
 scoreHistory = scoreHistory.split(",");
 scoreHistory = scoreHistory.map(Number);
 const highScores = (scoreHistory || []);
