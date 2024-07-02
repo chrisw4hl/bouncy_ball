@@ -107,9 +107,11 @@ function process_touchstart(ev){
 
 }
 
+var last_touch = 0;
 function process_touchend(){
   //to be implemented
-  reset_movement();
+  //reset_movement(); //not fun
+  last_touch = 1;
 }
 
 function reset_movement(){
@@ -334,7 +336,11 @@ class EvilCircle extends Shape {
 
     window.addEventListener("keydown", (e) => {
       if (["a","s","w","d","Escape","`","h"].includes(e.key)){
-          inputs[e.key] = "keydown";
+          if (last_touch == 1){
+            reset_movement();
+            last_touch = 0;
+          }
+      inputs[e.key] = "keydown";
       }
     });
 
