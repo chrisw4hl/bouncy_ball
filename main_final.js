@@ -33,10 +33,10 @@ if (localStorage.getItem("highScores") == null){
 }
 else{
   var scoreHistory = localStorage.getItem("highScores");
+  scoreHistory = scoreHistory.split(",");
+  scoreHistory = scoreHistory.map(Number);
+  const highScores = (scoreHistory || []);
 }
-scoreHistory = scoreHistory.split(",");
-scoreHistory = scoreHistory.map(Number);
-const highScores = (scoreHistory || []);
 
 var startTime = Date.now();
 var finishTime;
